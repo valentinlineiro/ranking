@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {RankingService} from "./core/services/ranking.service";
+import {Observable} from "rxjs";
+import {Score} from "./shared/model/score";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ranking';
+  displayedColumns: string[] = ['position', 'name', 'points'];
+  datasource$: Observable<Score[]>;
+
+  constructor(rankingService: RankingService) {
+    this.datasource$ = rankingService.ranking$;
+  }
+
 }
