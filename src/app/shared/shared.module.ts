@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {MatIconModule} from "@angular/material/icon";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule} from "@angular/material/button";
-import {MatTableModule} from "@angular/material/table";
-import {MatListModule} from "@angular/material/list";
-import {FlexLayoutModule} from "@angular/flex-layout";
+import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -18,7 +18,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatButtonModule,
     MatTableModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   exports: [
     MatIconModule,
@@ -28,8 +28,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatButtonModule,
     MatTableModule,
     MatListModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+  ],
 })
-export class SharedModule {
-}
+export class SharedModule {}

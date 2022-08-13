@@ -1,21 +1,20 @@
-import {Injectable} from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {BehaviorSubject, Observable} from "rxjs";
-import {Score} from "../../shared/model/score";
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Score } from '../../shared/model/score';
 
 const DATA: Score[] = [
   {
-    player: "Cretino",
+    player: 'Cretino',
     score: 1000,
-    timestamp: new Date()
-  }
+    timestamp: new Date(),
+  },
 ];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RankingService {
-
   private readonly _ranking$: Observable<Score[]>;
 
   constructor(private store: AngularFirestore) {
