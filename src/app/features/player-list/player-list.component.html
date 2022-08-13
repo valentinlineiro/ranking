@@ -1,1 +1,12 @@
-<p>player-list works!</p>
+<table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8" mat-table>
+  <ng-container matColumnDef="name">
+    <th *matHeaderCellDef mat-header-cell>Player</th>
+    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="highScore">
+    <th *matHeaderCellDef mat-header-cell>High Score</th>
+    <td *matCellDef="let element" mat-cell> {{element.highScore}} </td>
+  </ng-container>
+  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+</table>
