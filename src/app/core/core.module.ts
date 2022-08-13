@@ -1,14 +1,18 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
+  exports: [
+  ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    SharedModule
   ]
 })
 export class CoreModule {

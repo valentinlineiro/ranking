@@ -1,31 +1,20 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-  </mat-drawer>
-  <div class="example-sidenav-content">
-    <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Ranking HDP</span>
-    </mat-toolbar>
-    <table mat-table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8">
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef>#</th>
-        <td mat-cell *matCellDef="let i = index"> {{i + 1}} </td>
-      </ng-container>
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Player</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-      <ng-container matColumnDef="points">
-        <th mat-header-cell *matHeaderCellDef>Points</th>
-        <td mat-cell *matCellDef="let element"> {{element.points}} </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-</mat-drawer-container>
-
+<div fxLayout="column" fxFlexFill>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Ranking HDP</span>
+  </mat-toolbar>
+  <mat-drawer-container fxFlex autosize hasBackdrop="true">
+    <mat-drawer #sidenav mode="over">
+      <mat-nav-list>
+        <a mat-list-item routerLink="leaderboard">Home</a>
+        <a mat-list-item routerLink="players">Players</a>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
 
