@@ -3,6 +3,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SharedModule } from '../shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
@@ -10,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    HttpClientModule,
     SharedModule,
   ],
 })

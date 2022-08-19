@@ -9,7 +9,7 @@ import { PlayerService } from '../../core/services/player.service';
   styleUrls: ['./player-list.component.css'],
 })
 export class PlayerListComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'highScore'];
+  displayedColumns: string[] = ['name', 'active', 'created'];
   datasource$: Observable<Player[]>;
 
   constructor(playerService: PlayerService) {

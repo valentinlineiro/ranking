@@ -1,16 +1,25 @@
-<table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8" mat-table>
-  <ng-container matColumnDef="position">
-    <th *matHeaderCellDef mat-header-cell>#</th>
-    <td *matCellDef="let i = index" mat-cell> {{i + 1}} </td>
-  </ng-container>
-  <ng-container matColumnDef="name">
-    <th *matHeaderCellDef mat-header-cell>Player</th>
-    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="points">
-    <th *matHeaderCellDef mat-header-cell>Points</th>
-    <td *matCellDef="let element" mat-cell> {{element.points}} </td>
-  </ng-container>
-  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
-</table>
+<mat-toolbar>
+
+</mat-toolbar>
+<div fxLayout="row">
+  <div fxFlex="15"></div>
+  <div fxFlex="70">
+    <table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8" mat-table>
+      <ng-container matColumnDef="position">
+        <th *matHeaderCellDef mat-header-cell>#</th>
+        <td *matCellDef="let i = index" mat-cell> {{i + 1}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell>Player</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="points">
+        <th *matHeaderCellDef mat-header-cell>Points</th>
+        <td *matCellDef="let element" mat-cell> {{element.points}} </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+  </div>
+  <div fxFlex></div>
+</div>

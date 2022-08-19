@@ -1,5 +1,6 @@
 export interface Player {
-  id: string;
+  key: string;
   name: string;
-  highScore: number;
+  active: boolean;
+  created: number;
 }

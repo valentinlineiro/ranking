@@ -3,13 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Score } from '../../shared/model/score';
 
-const DATA: Score[] = [
-  {
-    player: 'Cretino',
-    score: 1000,
-    timestamp: new Date(),
-  },
-];
+const DATA: Score[] = [];
 
 @Injectable({
   providedIn: 'root',

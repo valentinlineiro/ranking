@@ -1,12 +1,33 @@
-<table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8" mat-table>
-  <ng-container matColumnDef="name">
-    <th *matHeaderCellDef mat-header-cell>Player</th>
-    <td *matCellDef="let element" mat-cell> {{element.name}} </td>
-  </ng-container>
-  <ng-container matColumnDef="highScore">
-    <th *matHeaderCellDef mat-header-cell>High Score</th>
-    <td *matCellDef="let element" mat-cell> {{element.highScore}} </td>
-  </ng-container>
-  <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
-</table>
+<mat-toolbar>
+  <button class="toolbar-button" mat-button>
+    <mat-icon>add</mat-icon>
+    <span>New</span>
+  </button>
+</mat-toolbar>
+<div fxLayout="row">
+  <div fxFlex="15"></div>
+  <div fxFlex="70">
+    <table [dataSource]="(datasource$ | async) ?? []" class="mat-elevation-z8" mat-table>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell>Player</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="active">
+        <th *matHeaderCellDef mat-header-cell>Active</th>
+        <td *matCellDef="let element" mat-cell>
+          <mat-checkbox [checked]="element.active" [disabled]="true"></mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="created">
+        <th *matHeaderCellDef mat-header-cell>Created</th>
+        <td *matCellDef="let element" mat-cell> {{element.created | date}} </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      <tr *matNoDataRow="let row;" class="mat-row">
+        <td class="mat-cell" colspan="3">No players found</td>
+      </tr>
+    </table>
+  </div>
+  <div fxFlex></div>
+</div>

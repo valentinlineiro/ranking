@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Player } from '../../shared/model/player';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayerService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   getPlayers(): Observable<Player[]> {
-    return of([{ id: '1', name: 'Cretino', highScore: 10000 }]);
+    return this.httpClient.get<Player[]>(environment.api + '/player');
   }
 }

@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -18,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatTableModule,
     MatListModule,
+    MatCheckboxModule,
     FlexLayoutModule,
   ],
   exports: [
@@ -28,6 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatTableModule,
     MatListModule,
+    MatCheckboxModule,
     FlexLayoutModule,
   ],
 })
