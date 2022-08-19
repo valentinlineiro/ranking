@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Score } from '../../shared/model/score';
 
@@ -11,7 +10,7 @@ const DATA: Score[] = [];
 export class RankingService {
   private readonly _ranking$: Observable<Score[]>;
 
-  constructor(private store: AngularFirestore) {
+  constructor() {
     this._ranking$ = new BehaviorSubject<Score[]>(DATA).asObservable();
   }
 
