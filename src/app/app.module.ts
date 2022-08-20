@@ -4,13 +4,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { AppRoutingModule } from './app-routing.module';
 import { LeaderboardComponent } from './features/leaderboard/leaderboard.component';
-import { PlayerListComponent } from './features/player-list/player-list.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'leaderboard',
+    component: LeaderboardComponent,
+  },
+  {
+    path: 'player',
+    loadChildren: () =>
+      import('./features/player/player.module').then((m) => m.PlayerModule),
+  },
+  {
+    path: '',
+    redirectTo: '/leaderboard',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
-  declarations: [AppComponent, LeaderboardComponent, PlayerListComponent],
-  imports: [BrowserModule, CoreModule, SharedModule, AppRoutingModule],
+  declarations: [AppComponent, LeaderboardComponent],
+  imports: [
+    BrowserModule,
+    CoreModule,
+    SharedModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
