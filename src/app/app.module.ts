@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { LeaderboardComponent } from './features/leaderboard/leaderboard.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'leaderboard',
-    component: LeaderboardComponent,
+    loadChildren: () =>
+      import('./features/leaderboard/leaderboard.module').then(
+        (m) => m.LeaderboardModule
+      ),
   },
   {
     path: 'player',
@@ -25,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, LeaderboardComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CoreModule,
